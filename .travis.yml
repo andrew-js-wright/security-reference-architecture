@@ -1,0 +1,8 @@
+language: node_js
+node_js: 
+ - "stable"
+script:
+ - npm init
+ - npm install express
+ - npm install express-session
+ - npm install mysql

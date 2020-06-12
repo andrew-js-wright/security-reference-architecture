@@ -2,4 +2,8 @@ language: node_js
 node_js: 
  - "stable"
 script:
- - node login.js
+ - npm init --yes
+ - npm install express
+ - npm install express-session
+ - npm install mysql
+ - node index.js &

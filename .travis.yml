@@ -6,4 +6,5 @@ script:
  - npm install express
  - npm install express-session
  - npm install mysql
- - node index.js &
+ - node index.js
+ 

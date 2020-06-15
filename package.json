@@ -1,0 +1,26 @@
+{
+  "name": "security-reference-architecture",
+  "version": "1.0.0",
+  "description": "A reference architecture which implements security best practices",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyasgul/security-reference-architecture.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alyasgul/security-reference-architecture/issues"
+  },
+  "homepage": "https://github.com/alyasgul/security-reference-architecture#readme"
+}

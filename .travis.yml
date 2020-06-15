@@ -1,13 +1,6 @@
 language: node_js
 node_js: 
  - "stable"
-services:
- - mysql
-before_install:
- - mysql -u testuser --password="password" <./travis.sql 
 script:
  - npm init --yes
- - npm install express
- - npm install express-session
- - npm install mysql
- - node index.js
+ 

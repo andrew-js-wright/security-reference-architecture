@@ -4,6 +4,6 @@ node_js:
 script:
  - npm init --yes
 before_install:
- - npm install "express" "^4.17.1"
- - npm install "express-session" "^1.17.1"
- - npm install "mysql" "^2.18.1"
+ - npm install express 4.17.1
+ - npm install express-session 1.17.1
+ - npm install mysql 2.18.1"

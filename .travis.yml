@@ -4,7 +4,7 @@ node_js:
 services:
  - mysql
 before_install:
- - mysql -u root --password="" <./travis.sql 
+ - mysql -u testuser --password="password" <./travis.sql 
 script:
  - npm init --yes
  - npm install express

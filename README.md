@@ -12,6 +12,13 @@ REQUIREMENTS
 3. Express (npm install express)
 4. Express Sessions (npm install express-session)
 5. MySQL for Node (npm install mysql)
+6. gitleaks 3.0.3 or higher;
+    # Install
+    brew install gitleaks
+    brew upgrade gitleaks
 
 The initial configuration relies heavily on;
 https://codeshack.io/basic-login-system-nodejs-express-mysql/
+
+Secrets implementation;
+https://github.com/KainosSoftwareLtd/secret-scanning

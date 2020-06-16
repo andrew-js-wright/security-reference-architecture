@@ -3,4 +3,12 @@ node_js:
  - "stable"
 script:
  - npm init --yes
- 
+stages:
+  - security
+gitleaks:
+  stage: security
+  image: 
+    name: "zricethezav/gitleaks:v3.0.3"
+    entrypoint: [""]
+  script:
+    - gitleaks --repo-config --repo-path=./ --verbose --pretty 

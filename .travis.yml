@@ -1,18 +1,17 @@
 language: node_js
 node_js: 
  - "stable"
-script:
- - npm init --yes
-before_install:
- - npm install express@4.17.1
- - npm install express-session@1.17.1
- - npm install mysql@2.18.1
 stages:
   - security
 gitleaks:
   stage: security
   image: 
     name: "zricethezav/gitleaks:v3.0.3"
-    entrypoint: [""]
-  script:
-    - gitleaks --repo-config --repo-path=./ --verbose --pretty 
+    entrypoint: [""] 
+script:
+ - npm init --yes
+ - gitleaks --repo-config --repo-path=./ --verbose --pretty
+before_install:
+ - npm install express@4.17.1
+ - npm install express-session@1.17.1
+ - npm install mysql@2.18.1

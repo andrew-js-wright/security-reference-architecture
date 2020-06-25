@@ -15,6 +15,7 @@ REQUIREMENTS
 6. gitleaks 3.0.3 or higher;
     # Install
     brew install gitleaks
+
     brew upgrade gitleaks
 
 The initial configuration relies heavily on;

@@ -1,2 +1,0 @@
-aws_access_key_id=AKIAZD4787KAIKLPZY77
-aws_access_key_id=AKIAZD4787KAIKLPZY78

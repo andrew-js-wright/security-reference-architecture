@@ -3,13 +3,6 @@ var config = require ('./config.json');
 var AWS = require('aws-sdk');
 var ssm = new AWS.SSM({apiVersion: '2014-11-06'})
 
-var pool  = mysql.createPool({
-	host : config.dbhost,
-	user : config.dbuser,
-	password : config.dbpassword,
-	database : config.dbname
-});
-
 exports.handler = (event, context, callback) => {
   var params = {
     Names: [

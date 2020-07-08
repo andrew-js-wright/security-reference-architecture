@@ -1,5 +1,7 @@
 var mysql = require("mysql");
 var config = require ('./config.json');
+var AWS = require('aws-sdk');
+var ssm = new AWS.SSM({apiVersion: '2014-11-06'})
 
 var pool  = mysql.createPool({
 	host : config.dbhost,
@@ -9,6 +11,20 @@ var pool  = mysql.createPool({
 });
 
 exports.handler = (event, context, callback) => {
+  var params = {
+    Names: [
+      'DBuser',
+      'DBpassword',
+      'dbHostName',
+      'dbName'
+      ],
+      WithDecryption: true
+  };
+  console.log(params);
+  ssm.getParameters(params, function(err, data) {
+    if(err) console.log(err, err.stack)
+    else console.log(data)
+  });
   context.callbackWaitsForEmptyEventLoop = false;
   pool.getConnection(function(err, connection) {
     if (err) throw err; // not connected!
@@ -19,7 +35,6 @@ exports.handler = (event, context, callback) => {
       // Handle error after the release.
       if (error) callback(error);
       else callback(null, results[0].email);
-      // Don't use the connection here, it has been returned to the pool.
     });
   });
 };

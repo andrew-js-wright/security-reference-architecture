@@ -1,6 +1,0 @@
-{
-    "dbhost" : "refarch-mysql-db.cii1mhug81em.eu-west-1.rds.amazonaws.com",
-    "dbname" : "refarchdb",
-    "dbuser" : "admin",
-    "dbpassword" : "Golden1Golden"
-}

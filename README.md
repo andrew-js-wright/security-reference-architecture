@@ -1,25 +1,68 @@
 # security-reference-architecture
 A reference architecture which implements security best practices
 
-Initially create a simple login application using node js, with a MySQL backend.
+As of 06/09/2020 some of the resources associated with this project have been removed, to reproduce use the following templates:
 
-This application will run locally and contains trivial credentials. These credentials are intentially insecure as they are not used for a real operating system.
+1. RDS
 
-REQUIREMENTS
+AWS RDS MYSQL
 
-1. MySQl
-2. Node.js
-3. Express (npm install express)
-4. Express Sessions (npm install express-session)
-5. MySQL for Node (npm install mysql)
-6. gitleaks 3.0.3 or higher;
-    # Install
-    brew install gitleaks
+Instance Identifier = refarch-mysql-db
+Region = eu-west-1c
+Size = db.t2.micro
 
-    brew upgrade gitleaks
+mysql> show tables;
++---------------------+
+| Tables_in_refarchdb |
++---------------------+
+| accounts            |
++---------------------+
 
-The initial configuration relies heavily on;
-https://codeshack.io/basic-login-system-nodejs-express-mysql/
+mysql> desc accounts;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | YES  |     | NULL    |       |
+| password | varchar(25) | YES  |     | NULL    |       |
+| email    | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
 
-Secrets implementation;
-https://github.com/KainosSoftwareLtd/secret-scanning
+Add 2 or 3 entries.
+
+Deletion Protection = True
+
+2. Data in Secret Manager
+
+Secret Name = mysql_secrets
+
+List of Secret Keys/Values
+	user = DB user
+	password = DB password
+	engine = mysql
+	hostname = DB endpoint
+	port = 3306
+	dbinstanceidentifier = refarch-mysql-db
+	name = DB name(refarchdb)
+	
+3. ECR
+
+Repository Name = refarch-repo
+
+Store dependency-track image here.
+
+Pull from here: owasp/dependency-track
+
+4. ECS Cluster
+
+Create ECS cluster (Fargate) using the previously created ECR.
+Name = refarch-cluster
+
+Ensure the access to the internet is provided (port 8080).
+
+5. ECS Task
+
+Create and run an ECS Fargate task.
+Name = refarch-task
+
+At this point access to dependency-track login page is attainable
+    <Public IP>:8008

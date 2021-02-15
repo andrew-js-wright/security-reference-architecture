@@ -12,7 +12,6 @@ services:
 #     entrypoint: [""] 
 script:
  - npm init --yes
-#  - gitleaks --repo-config --repo-path=./ --verbose --pretty
 before_install:
  - npm install express@4.17.1
  - npm install express-session@1.17.1

@@ -42,7 +42,7 @@
     tags = ["key", "AsymmetricPrivateKey"]
 [[Rules]]
     description = "Generic Password"
-    regex = '''(?im)['"]?[a-z-_]*password[a-z-_]*['"]?\s*[=:]\s*('(?:[^'\\]|\\.){6,100}'|"(?:[^"\\]|\\.){6,100}")\s*,?\s*$'''
+    regex = '''(?im)['"]?[a-z-_]*password[a-z-_]*['"]?\s*[=:]\s*('(?:[^'\\]|\\.){4,100}'|"(?:[^"\\]|\\.){4,100}")\s*,?\s*$'''
     tags = ["Password", "Generic"]
 
     [[Rules.Whitelist]]

@@ -26,7 +26,7 @@ exports.handler = (event, context, callback) => {
             database: secretJSON.name
         });
         var example_user = "test";
-        var example_password = "test";
+        var example_password = "testpassword";
         pool.getConnection(function(err, connection) {
             if (err) throw err; // not connected!
             // Use the connection

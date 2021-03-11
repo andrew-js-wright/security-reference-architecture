@@ -18,4 +18,5 @@ before_install:
  - npm install express-session@1.17.1
  - npm install mysql@2.18.1
  - docker pull zricethezav/gitleaks
+ - docker run --rm --name=gitleaks --version
  - docker run --rm --name=gitleaks zricethezav/gitleaks --files-at-commit=$TRAVIS_COMMIT -v -r https://github.com/andrew-js-wright/security-reference-architecture
